@@ -1,0 +1,21 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+a{
+    text-decoration: none;
+}
+
+.authors{
+    padding: 20px;
+}
+.authors .item{
+    margin-bottom: 10px;
+}
+.authors .active{
+    font-weight: bold;
+}
+.messages{
+    padding: 20px;
+}

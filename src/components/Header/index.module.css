@@ -1,0 +1,11 @@
+.header{
+    grid-area: h;
+    /*background-color: aliceblue;*/
+}
+.header img {
+    display: inline-block;
+    width: 120px;
+    padding-left: 10px;
+
+
+}

@@ -1,0 +1,15 @@
+.navBar {
+    grid-area: n;
+    background-color: aliceblue;
+    padding: 20px;
+
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.item a.active {
+    font-weight: bold;
+    color: darkred;
+}

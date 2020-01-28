@@ -1,0 +1,13 @@
+.profileInfo{
+    display: flex;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.profileInfoAvatar{
+    width: 150px;
+}
+
+.profileInfoText{
+    padding: 10px;
+}
