@@ -4,22 +4,25 @@ import MsgAuthor from "./MsgAuthor";
 import MsgText from "./MsgText";
 
 const Messages = ({state}) => {
+
+    let MsgAuthorItems = state.map((item)=>{
+        return (
+            <MsgAuthor id={item.id} name={item.name} />
+        )
+    });
+    let MsgTextItems = state.map((item)=>{
+        return (
+            <MsgText text={item.text}/>
+        )
+    })
     debugger;
     return (
         <div className={styles.dialogs}>
             <div className={styles.authors}>
-                {state.map((el)=>{
-                    return (
-                       <MsgAuthor id={el.id} name={el.name} />
-                    )
-                })}
+                {MsgAuthorItems}
             </div>
             <div className={styles.messages}>
-                {state.map((el)=>{
-                    return (
-                        <MsgText text={el.text}/>
-                    )
-                })}
+                {MsgTextItems}
             </div>
         </div>
     )

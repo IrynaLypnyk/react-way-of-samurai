@@ -8,12 +8,11 @@ import Messages from "./components/Messages";
 import News from "./components/News";
 import Music from "./components/Music";
 import Settings from "./components/Settings";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 function App({state}) {
 
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <NavBar state={state.navData}/>
@@ -27,7 +26,6 @@ function App({state}) {
                     </div>
                 </main>
             </div>
-        </BrowserRouter>
     );
 }
 
