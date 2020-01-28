@@ -5,7 +5,7 @@ import NewPost from "./NewPost";
 
 const MyPosts = ({state}) => {
 
-    let PostItems = state.map((el)=>{
+    let PostItems = state.posts.map((el)=>{
         return(
             <PostItem img={el.img} alt={el.alt} msg={el.msg} likeCounts={el.likeCounts}/>
         )
