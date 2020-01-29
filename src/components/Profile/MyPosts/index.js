@@ -4,6 +4,13 @@ import PostItem from "./PostItem";
 import NewPost from "./NewPost";
 
 const MyPosts = ({state}) => {
+
+    let PostItems = state.posts.map((el)=>{
+        return(
+            <PostItem img={el.img} alt={el.alt} msg={el.msg} likeCounts={el.likeCounts}/>
+        )
+    });
+
     debugger;
     return (
         <div className={styles.myPosts}>
@@ -11,11 +18,7 @@ const MyPosts = ({state}) => {
                 <h3>My Posts</h3>
                 <NewPost />
                 <div className={styles.posts}>
-                    {state.map((el)=>{
-                        return(
-                            <PostItem img={el.img} alt={el.alt} msg={el.msg} likeCounts={el.likeCounts}/>
-                        )
-                    })}
+                    {PostItems}
                   </div>
             </div>
         </div>

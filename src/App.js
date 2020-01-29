@@ -8,26 +8,24 @@ import Messages from "./components/Messages";
 import News from "./components/News";
 import Music from "./components/Music";
 import Settings from "./components/Settings";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
-function App({state}) {
+function App({state, addMsg}) {
 
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <NavBar state={state.navData}/>
+                <NavBar state={state.navBar}/>
                 <main>
                     <div className='app-wrapper-content'>
-                        <Route exact path='/profile' render={()=><Profile state={state.postItemData}/>}/>
-                        <Route path='/messages' render={()=><Messages state={state.messagesData}/>}/>
+                        <Route exact path='/profile' render={()=><Profile state={state.profilePage}/>}/>
+                        <Route path='/messages' render={()=><Messages state={state.messagesPage} addMsg={addMsg}/>}/>
                         <Route exact path='/news' render={()=><News/>}/>
                         <Route exact path='/music' render={()=><Music/>}/>
                         <Route exact path='/settings' render={()=><Settings/>}/>
                     </div>
                 </main>
             </div>
-        </BrowserRouter>
     );
 }
 
