@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     navBar: {
         navLinks:[
@@ -64,18 +66,25 @@ let state = {
                     text: "Bla-bla-bla",
                 },
             ],
+        newMsgText: 'test msg',
     },
 };
 
 export let addMsg = (msg) => {
     let messages = state.messagesPage.messages;
-    return (
-        messages.push({
-            name: 'Natasha',
-            id: 5,
-            text: msg,
-        })
-    )
+    let newMsg = ({
+        name: 'Natasha',
+        id: 5,
+        text: msg,
+    });
+
+    messages.push(newMsg);
+    rerenderEntireTree(state);
 }
+
+export let updateNewMsgText = (text) => {
+    state.messagesPage.newMsgText = text;
+    rerenderEntireTree(state);
+};
 
 export default state;
