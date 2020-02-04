@@ -11,7 +11,6 @@ const MyPosts = ({state}) => {
         )
     });
 
-    debugger;
     return (
         <div className={styles.myPosts}>
             <div>

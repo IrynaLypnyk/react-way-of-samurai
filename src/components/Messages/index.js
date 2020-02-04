@@ -4,7 +4,7 @@ import MsgAuthor from "./MsgAuthor";
 import MsgText from "./MsgText";
 import NewMsg from "./NewMsg";
 
-const Messages = ({state, addMsg}) => {
+const Messages = ({state, addMsg, newMsgText, updateNewMsgText}) => {
 
     let MsgAuthorItems = state.messages.map((item)=>{
         return (
@@ -16,7 +16,7 @@ const Messages = ({state, addMsg}) => {
             <MsgText text={item.text}/>
         )
     })
-    debugger;
+
     return (
         <div>
             <div className={styles.dialogs}>
@@ -28,7 +28,7 @@ const Messages = ({state, addMsg}) => {
                 </div>
             </div>
             <h3>New Message</h3>
-            <NewMsg addMsg={addMsg}/>
+            <NewMsg addMsg={addMsg} newMsgText={newMsgText} updateNewMsgText={updateNewMsgText}/>
         </div>
 
     )
