@@ -6,9 +6,7 @@ const NewMsg = ({addMsg, newMsgText, updateNewMsgText}) => {
     let NewMsgTextRef = React.createRef();
 
     let handleClick = () => {
-        let text = NewMsgTextRef.current.value;
-        addMsg(text);
-        NewMsgTextRef.current.value = '';
+        addMsg();
     };
     let onMsgChange = () => {
         let newText = NewMsgTextRef.current.value;

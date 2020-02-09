@@ -4,7 +4,7 @@ import MsgAuthor from "./MsgAuthor";
 import MsgText from "./MsgText";
 import NewMsg from "./NewMsg";
 
-const Messages = ({state, addMsg, newMsgText, updateNewMsgText}) => {
+const Messages = ({state, addMsg, updateNewMsgText}) => {
 
     let MsgAuthorItems = state.messages.map((item)=>{
         return (
@@ -28,7 +28,7 @@ const Messages = ({state, addMsg, newMsgText, updateNewMsgText}) => {
                 </div>
             </div>
             <h3>New Message</h3>
-            <NewMsg addMsg={addMsg} newMsgText={newMsgText} updateNewMsgText={updateNewMsgText}/>
+            <NewMsg addMsg={addMsg} newMsgText={state.newMsgText} updateNewMsgText={updateNewMsgText}/>
         </div>
 
     )

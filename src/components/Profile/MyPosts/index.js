@@ -3,11 +3,11 @@ import styles from './index.module.css';
 import PostItem from "./PostItem";
 import NewPost from "./NewPost";
 
-const MyPosts = ({state}) => {
+const MyPosts = ({state, addNewPost, updateNewPostText}) => {
 
-    let PostItems = state.posts.map((el)=>{
+    let PostItems = state.posts.map((el, index)=>{
         return(
-            <PostItem img={el.img} alt={el.alt} msg={el.msg} likeCounts={el.likeCounts}/>
+            <PostItem img={el.img} alt={el.alt} msg={el.msg} key={index} likeCounts={el.likeCounts}/>
         )
     });
 
@@ -15,7 +15,7 @@ const MyPosts = ({state}) => {
         <div className={styles.myPosts}>
             <div>
                 <h3>My Posts</h3>
-                <NewPost />
+                <NewPost newPostText={state.newPostText} addNewPost={addNewPost} updateNewPostText={updateNewPostText}/>
                 <div className={styles.posts}>
                     {PostItems}
                   </div>

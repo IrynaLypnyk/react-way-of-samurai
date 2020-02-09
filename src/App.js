@@ -10,7 +10,7 @@ import Music from "./components/Music";
 import Settings from "./components/Settings";
 import {Route} from "react-router-dom";
 
-function App({state, addMsg, updateNewMsgText}) {
+function App({state, addMsg, updateNewMsgText, addNewPost, updateNewPostText}) {
 
     return (
             <div className="app-wrapper">
@@ -18,8 +18,8 @@ function App({state, addMsg, updateNewMsgText}) {
                 <NavBar state={state.navBar}/>
                 <main>
                     <div className='app-wrapper-content'>
-                        <Route exact path='/profile' render={()=><Profile state={state.profilePage}/>}/>
-                        <Route path='/messages' render={()=><Messages state={state.messagesPage} addMsg={addMsg} newMsgText={state.messagesPage.newMsgText} updateNewMsgText={updateNewMsgText}/>}/>
+                        <Route exact path='/profile' render={()=><Profile state={state.profilePage} addNewPost={addNewPost} updateNewPostText={updateNewPostText}/>}/>
+                        <Route path='/messages' render={()=><Messages state={state.messagesPage} addMsg={addMsg} updateNewMsgText={updateNewMsgText}/>}/>
                         <Route exact path='/news' render={()=><News/>}/>
                         <Route exact path='/music' render={()=><Music/>}/>
                         <Route exact path='/settings' render={()=><Settings/>}/>

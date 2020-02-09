@@ -39,8 +39,9 @@ let state = {
                 alt: 'snow',
                 msg: "Yooo!!!",
                 likeCounts: 7,
-            }
+            },
         ],
+        newPostText: 'newPostText test',
     },
     messagesPage:{
         messages:
@@ -66,25 +67,44 @@ let state = {
                     text: "Bla-bla-bla",
                 },
             ],
-        newMsgText: 'test msg',
+        newMsgText: 'test msg test-test',
     },
 };
 
-export let addMsg = (msg) => {
+window.state = state;
+
+export let addMsg = () => {
     let messages = state.messagesPage.messages;
     let newMsg = ({
         name: 'Natasha',
         id: 5,
-        text: msg,
+        text: state.messagesPage.newMsgText,
     });
-
     messages.push(newMsg);
     rerenderEntireTree(state);
-}
+    state.messagesPage.newMsgText = '';
+};
 
 export let updateNewMsgText = (text) => {
     state.messagesPage.newMsgText = text;
     rerenderEntireTree(state);
 };
+
+export let addNewPost = () => {
+    let posts = state.profilePage.posts;
+    let newPost =  {
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoyaVeIY17eBrD1SPcizRToZayBCL9dAAbrIdhCPFMqGedlaP0",
+            alt: 'snow',
+            msg: state.profilePage.newPostText,
+            likeCounts: 10,
+        };
+    posts.push(newPost);
+    rerenderEntireTree(state);
+    state.profilePage.newPostText='';
+};
+export let  updateNewPostText = (text) => {
+    state.profilePage.newPostText = text;
+    rerenderEntireTree(state);
+}
 
 export default state;
