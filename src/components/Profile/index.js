@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import MyPosts from "./MyPosts";
 import ProfileInfo from "./ProfileInfo";
 
-const Profile = ({state, addNewPost, updateNewPostText}) => {
+const Profile = ({state, dispatch}) => {
     return (
         <div className={styles.profile}>
             <div className={styles.profileImgWrap}>
@@ -12,7 +12,7 @@ const Profile = ({state, addNewPost, updateNewPostText}) => {
             <div>
                 <ProfileInfo />
             </div>
-            <MyPosts state={state} addNewPost={addNewPost} updateNewPostText={updateNewPostText}/>
+            <MyPosts state={state}  dispatch={dispatch}/>
         </div>
     )
 }

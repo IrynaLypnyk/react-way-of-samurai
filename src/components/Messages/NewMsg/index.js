@@ -1,16 +1,19 @@
 import styles from "../index.module.css";
 import React from "react";
+import {AddMsgActionCreator, UpdateNewMsgTextActionCreator} from "../../../redux/state";
 
-const NewMsg = ({addMsg, newMsgText, updateNewMsgText}) => {
+
+const NewMsg = ({newMsgText, dispatch}) => {
 
     let NewMsgTextRef = React.createRef();
 
     let handleClick = () => {
-        addMsg();
+        dispatch(AddMsgActionCreator());
     };
     let onMsgChange = () => {
         let newText = NewMsgTextRef.current.value;
-        updateNewMsgText(newText);
+        dispatch(UpdateNewMsgTextActionCreator(newText));
+
     }
 
     return(
