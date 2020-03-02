@@ -1,7 +1,6 @@
-const ADD_MSG = 'ADD-MSG';
-const UPDATE_NEW_MSG_TEXT = 'UPDATE-NEW-MSG-TEXT';
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import messageReducer from "./message-reducer";
+import profileReducer from "./profile-reducer";
+import navbarReducer from "./navbar-reducer";
 
 const store = {
         _state : {
@@ -84,49 +83,13 @@ const store = {
             return this._state;
         },
         dispatch(action) {
-            if (action.type === ADD_MSG) {
-                let messages = this._state.messagesPage.messages;
-                let newMsg = ({
-                    name: 'Natasha',
-                    id: 5,
-                    text: this._state.messagesPage.newMsgText,
-                });
-                messages.push(newMsg);
-                this._callSubscriber(this._state);
-                this._state.messagesPage.newMsgText = '';
-            }
-            if (action.type === UPDATE_NEW_MSG_TEXT) {
-                this._state.messagesPage.newMsgText = action.text;
-                this._callSubscriber(this._state);
-            }
-            if(action.type === ADD_POST){
-                let posts = this._state.profilePage.posts;
-                let newPost =  {
-                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoyaVeIY17eBrD1SPcizRToZayBCL9dAAbrIdhCPFMqGedlaP0",
-                    alt: 'snow',
-                    msg: this._state.profilePage.newPostText,
-                    likeCounts: 10,
-                };
-                posts.push(newPost);
-                this._callSubscriber(this._state);
-                this._state.profilePage.newPostText='';
-            }
-            if(action.type === UPDATE_NEW_POST_TEXT){
-                this._state.profilePage.newPostText = action.text;
-                this._callSubscriber(this._state);
-            }
+            this._state.messagesPage = messageReducer ( this._state.messagesPage, action);
+            this._state.profilePage = profileReducer ( this._state.profilePage, action);
+            this._state.navBar = navbarReducer ( this._state.navBar, action);
+            this._callSubscriber(this._state);
         },
 };
 
-
-export const AddMsgActionCreator = () => ({type: ADD_MSG});
-export const AddPostActionCreator = () => ({type: ADD_POST});
-export const UpdateNewMsgTextActionCreator = (text) => ({type: UPDATE_NEW_MSG_TEXT, text: text});
-export const UpdateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text});
-
 window.store = store;
-
-
-
 
 export default store;

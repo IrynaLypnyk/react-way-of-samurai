@@ -1,6 +1,6 @@
 import styles from "../index.module.css";
 import React from "react";
-import {AddPostActionCreator, UpdateNewPostTextActionCreator} from "../../../../redux/state";
+import {AddPostActionCreator, UpdateNewPostTextActionCreator} from "../../../../redux/profile-reducer";
 
 const NewPost = ({newPostText, dispatch}) => {
 

@@ -1,6 +1,6 @@
 import styles from "../index.module.css";
 import React from "react";
-import {AddMsgActionCreator, UpdateNewMsgTextActionCreator} from "../../../redux/state";
+import {AddMsgActionCreator, UpdateNewMsgTextActionCreator} from "../../../redux/message-reducer";
 
 
 const NewMsg = ({newMsgText, dispatch}) => {
