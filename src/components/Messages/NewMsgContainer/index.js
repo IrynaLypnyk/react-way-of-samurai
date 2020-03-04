@@ -1,28 +1,41 @@
-import styles from "../index.module.css";
 import React from "react";
 import {AddMsgActionCreator, UpdateNewMsgTextActionCreator} from "../../../redux/message-reducer";
+import NewMsg from "../NewMsg";
+import {connect} from "react-redux";
 
 
-const NewMsg = ({newMsgText, dispatch}) => {
+// const NewMsgContainer = (props) => {
+//     let state = props.store.getState();
+//
+//     let handleClick = () => {
+//         props.store.dispatch(AddMsgActionCreator());
+//     };
+//     let onMsgChange = (newText) => {
+//         props.store.dispatch(UpdateNewMsgTextActionCreator(newText));
+//
+//     }
+//
+//     return(
+//         <NewMsg addMsg={handleClick} updateNewMsgText={onMsgChange} newMsgText={state.messagesPage.newMsgText} />
+//     )
+// };
 
-    let NewMsgTextRef = React.createRef();
-
-    let handleClick = () => {
-        dispatch(AddMsgActionCreator());
-    };
-    let onMsgChange = () => {
-        let newText = NewMsgTextRef.current.value;
-        dispatch(UpdateNewMsgTextActionCreator(newText));
-
+let mapStateToProps = (state) =>{
+    return {
+        messagesPage: state.messagesPage
     }
-
-    return(
-        <div className={styles.newMsg}>
-            <textarea ref={NewMsgTextRef} name="msg-text" id="msg-text" cols="30" rows="5" value={newMsgText} onChange={onMsgChange}/>
-            <div>
-                <button type='button' onClick={handleClick} className='btn'>Добавить</button>
-            </div>
-        </div>
-    )
 };
-export default NewMsg;
+let mapDispatchToProps = (dispatch) =>{
+    return {
+        updateNewMsgText: (newText) => {
+            dispatch(UpdateNewMsgTextActionCreator(newText));
+        },
+        addMsg: () => {
+            dispatch(AddMsgActionCreator());
+        }
+    }
+};
+
+let NewMsgContainer = connect(mapStateToProps, mapDispatchToProps)(NewMsg);
+
+export default NewMsgContainer;

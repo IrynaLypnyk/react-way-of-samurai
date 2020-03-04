@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './index.module.css';
-import MyPosts from "./MyPosts";
+import MyPostsContainer from "./MyPostsContainer";
 import ProfileInfo from "./ProfileInfo";
 
-const Profile = ({state, dispatch}) => {
+const Profile = (props) => {
     return (
         <div className={styles.profile}>
             <div className={styles.profileImgWrap}>
@@ -12,7 +12,7 @@ const Profile = ({state, dispatch}) => {
             <div>
                 <ProfileInfo />
             </div>
-            <MyPosts state={state}  dispatch={dispatch}/>
+            <MyPostsContainer store={props.store}/>
         </div>
     )
 }

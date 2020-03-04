@@ -10,15 +10,15 @@ import Music from "./components/Music";
 import Settings from "./components/Settings";
 import {Route} from "react-router-dom";
 
-function App({state, dispatch}) {
+function App({state, dispatch, store}) {
     return (
             <div className="app-wrapper">
                 <Header/>
                 <NavBar state={state.navBar}/>
                 <main>
                     <div className='app-wrapper-content'>
-                        <Route exact path='/profile' render={()=><Profile state={state.profilePage} dispatch={dispatch}/>}/>
-                        <Route path='/messages' render={()=><Messages state={state.messagesPage} dispatch={dispatch}/>}/>
+                        <Route exact path='/profile' render={()=><Profile store={store}/>}/>
+                        <Route path='/messages' render={()=><Messages store={store}/>}/>
                         <Route exact path='/news' render={()=><News/>}/>
                         <Route exact path='/music' render={()=><Music/>}/>
                         <Route exact path='/settings' render={()=><Settings/>}/>

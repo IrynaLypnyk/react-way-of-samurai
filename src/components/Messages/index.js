@@ -2,16 +2,17 @@ import React from 'react';
 import styles from './index.module.css';
 import MsgAuthor from "./MsgAuthor";
 import MsgText from "./MsgText";
-import NewMsg from "./NewMsg";
+import NewMsgContainer from "./NewMsgContainer";
 
-const Messages = ({state, dispatch}) => {
+const Messages = (props) => {
+    let state = props.store.getState();
 
-    let MsgAuthorItems = state.messages.map((item)=>{
+    let MsgAuthorItems = state.messagesPage.messages.map((item)=>{
         return (
             <MsgAuthor id={item.id} name={item.name} />
         )
     });
-    let MsgTextItems = state.messages.map((item)=>{
+    let MsgTextItems = state.messagesPage.messages.map((item)=>{
         return (
             <MsgText text={item.text}/>
         )
@@ -28,7 +29,7 @@ const Messages = ({state, dispatch}) => {
                 </div>
             </div>
             <h3>New Message</h3>
-            <NewMsg newMsgText={state.newMsgText} dispatch={dispatch}/>
+            <NewMsgContainer store={props.store}/>
         </div>
 
     )
