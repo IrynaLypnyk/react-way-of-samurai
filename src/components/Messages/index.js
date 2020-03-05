@@ -5,14 +5,13 @@ import MsgText from "./MsgText";
 import NewMsgContainer from "./NewMsgContainer";
 
 const Messages = (props) => {
-    let state = props.store.getState();
 
-    let MsgAuthorItems = state.messagesPage.messages.map((item)=>{
+    let MsgAuthorItems = props.messages.map((item)=>{
         return (
             <MsgAuthor id={item.id} name={item.name} />
         )
     });
-    let MsgTextItems = state.messagesPage.messages.map((item)=>{
+    let MsgTextItems = props.messages.map((item)=>{
         return (
             <MsgText text={item.text}/>
         )
@@ -29,7 +28,7 @@ const Messages = (props) => {
                 </div>
             </div>
             <h3>New Message</h3>
-            <NewMsgContainer store={props.store}/>
+            <NewMsgContainer />
         </div>
 
     )

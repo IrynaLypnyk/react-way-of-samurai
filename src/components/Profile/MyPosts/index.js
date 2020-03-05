@@ -4,7 +4,7 @@ import PostItem from "./PostItem";
 
 
 const MyPosts = (props) => {
-
+    debugger;
     let PostItems = props.posts.map((el, index)=>{
         return(
             <PostItem img={el.img} alt={el.alt} msg={el.msg} key={index} likeCounts={el.likeCounts}/>
