@@ -8,10 +8,11 @@ import Settings from "./components/Settings";
 import {Route} from "react-router-dom";
 import NavBarContainer from "./components/NavBarContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+
 
 
 function App() {
-    debugger;
     return (
             <div className="app-wrapper">
                 <Header/>
@@ -23,6 +24,7 @@ function App() {
                         <Route exact path='/news' render={()=><News/>}/>
                         <Route exact path='/music' render={()=><Music/>}/>
                         <Route exact path='/settings' render={()=><Settings/>}/>
+                        <Route exact path='/users' render={()=><UsersContainer/>}/>
                     </div>
                 </main>
             </div>

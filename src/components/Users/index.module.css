@@ -1,0 +1,22 @@
+.user{
+    display: flex;
+}
+
+.userLeft, .userRight{
+    display: flex;
+
+}
+
+.userLeft{
+    flex-basis: 20%;
+    flex-direction: column;
+    img{
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.userRight{
+    flex-basis: 80%;
+}
