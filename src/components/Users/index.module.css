@@ -1,5 +1,6 @@
 .user{
     display: flex;
+    margin-bottom: 20px;
 }
 
 .userLeft, .userRight{
@@ -8,15 +9,14 @@
 }
 
 .userLeft{
-    flex-basis: 20%;
+    flex-basis: 10%;
     flex-direction: column;
     img{
-        display: inline-block;
-        max-width: 100%;
-        height: auto;
+        max-width: 150px;
+        margin-bottom: 10px;
     }
 }
 
 .userRight{
-    flex-basis: 80%;
+    flex-basis: 90%;
 }

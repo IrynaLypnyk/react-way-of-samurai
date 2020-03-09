@@ -8,6 +8,7 @@ import App from './App';
 
 import './index.css';
 
+window.store = store;
 
  ReactDOM.render(
     <BrowserRouter>
