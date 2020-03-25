@@ -17,6 +17,9 @@ let initialState = {
         {to: "/settings",
             name: "Settings"
         },
+        {to: "/users",
+            name: "Users"
+        },
     ],
 };
 
