@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './components/Header';
-import Profile from './components/Profile';
 import './App.css';
 import News from "./components/News";
 import Music from "./components/Music";
@@ -9,6 +8,7 @@ import {Route} from "react-router-dom";
 import NavBarContainer from "./components/NavBarContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 
@@ -19,7 +19,7 @@ function App() {
                 <NavBarContainer />
                 <main>
                     <div className='app-wrapper-content'>
-                        <Route exact path='/profile' render={()=><Profile />}/>
+                        <Route path='/profile/:userId?' render={()=><ProfileContainer />}/>
                         <Route path='/messages' render={()=><MessagesContainer/>}/>
                         <Route exact path='/news' render={()=><News/>}/>
                         <Route exact path='/music' render={()=><Music/>}/>
