@@ -1,11 +1,16 @@
 .header{
     grid-area: h;
     /*background-color: aliceblue;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .header img {
     display: inline-block;
     width: 120px;
     padding-left: 10px;
+}
 
-
+.login{
+    padding: 20px;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header';
 import './App.css';
 import News from "./components/News";
 import Music from "./components/Music";
@@ -9,13 +8,14 @@ import NavBarContainer from "./components/NavBarContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 
 function App() {
     return (
             <div className="app-wrapper">
-                <Header/>
+                <HeaderContainer/>
                 <NavBarContainer />
                 <main>
                     <div className='app-wrapper-content'>
